@@ -7,7 +7,6 @@ A Go string concatenation library that is more efficient than strings.Builder.
 go get github.com/stanNthe5/stringbuf
 ```
 
-
 ## Usage
 ```
 sb := stringbuf.New("Hello ", "world,")
@@ -16,9 +15,9 @@ sb.Prepend("StringbBuf ", "testing: ")
 str := sb.String()
 ```
 
-# Benchmark
+## Benchmark
 
-## Compare with strings.Builder
+### Compare with strings.Builder
 (source code: stringbuf_bench_test.go)
 ```
 cpu: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
@@ -28,3 +27,7 @@ BenchmarkStringBuf_Prepend-6                        5534            247672 ns/op
 BenchmarkStringsBuilder_PrependSimulated-6             6         183996911 ns/op
 PASS
 ```
+
+## Why stringbuf is faster?
+
+It defers the actual string concatenation (copying data) until String() or Bytes() is called. During Append or Prepend, it primarily stores references to the input strings in internal [][]string slices, chunking them to reduce reallocations compared to strings.Builder which might repeatedly reallocate and copy the growing byte buffer during every append. Prepending is also handled efficiently using a separate buffer, avoiding costly data shifting.

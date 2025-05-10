@@ -122,8 +122,11 @@ func (s *StringBuf) Equal(t StringBuf) bool {
 }
 
 func (s *StringBuf) Reset() {
-	s.buf = [][]string{}
-	s.reverseBuf = [][]string{}
+	if s.len == 0 {
+		return
+	}
+	s.buf = s.buf[:0]
+	s.reverseBuf = s.reverseBuf[:0]
 	s.len = 0
 	s.index = 0
 	s.reverseIndex = 0
