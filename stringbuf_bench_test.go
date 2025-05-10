@@ -19,7 +19,7 @@ func BenchmarkStringBuf_Append(b *testing.B) {
 	}
 }
 
-// trings.Builder
+// strings.Builder
 func BenchmarkStringsBuilder_Append(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		var sb strings.Builder

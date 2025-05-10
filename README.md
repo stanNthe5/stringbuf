@@ -17,6 +17,8 @@ str := sb.String()
 ```
 
 # Benchmark
+
+## Compare with strings.Builder
 (source code: stringbuf_bench_test.go)
 ```
 cpu: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
