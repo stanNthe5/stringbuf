@@ -8,6 +8,11 @@ type StringBuf struct {
 	len          int
 }
 
+func (s *StringBuf) Write(p []byte) (n int, err error) {
+	s.Append(string(p))
+	return len(p), nil
+}
+
 func (s *StringBuf) Append(strs ...string) {
 	if len(s.buf) == 0 {
 		s.buf = append(s.buf, []string{})
