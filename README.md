@@ -1,11 +1,14 @@
 # stringbuf
 
-A Go string concatenation library that is faster than strings.Builder
+A Go string concatenation library that is more efficient than strings.Builder.
 
-# Usage
+## Install
+go get github.com/stanNthe5/stringbuf
 
+
+## Usage
 ```
-sb := New("Hello ", "world,")
+sb := stringbuf.New("Hello ", "world,")
 sb.Append("I am ", "StringBuf")
 sb.Prepend("StringbBuf ", "testing: ")
 str := sb.String()
