@@ -3,7 +3,9 @@
 A Go string concatenation library that is more efficient than strings.Builder.
 
 ## Install
+```
 go get github.com/stanNthe5/stringbuf
+```
 
 
 ## Usage
