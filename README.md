@@ -28,6 +28,6 @@ BenchmarkStringsBuilder_PrependSimulated-6             6         183996911 ns/op
 PASS
 ```
 
-## Why stringbuf is faster?
+## Why is stringbuf faster?
 
 It defers the actual string concatenation (copying data) until String() or Bytes() is called. During Append or Prepend, it primarily stores references to the input strings in internal [][]string slices, chunking them to reduce reallocations compared to strings.Builder which might repeatedly reallocate and copy the growing byte buffer during every append. Prepending is also handled efficiently using a separate buffer, avoiding costly data shifting. (Inspired by the Node.js v8 engine)
