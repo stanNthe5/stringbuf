@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-const sample = "abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij"
-const times = 3000
+const sample = "abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij"
+const times = 2000
 
 // stringbuf
 func BenchmarkStringBuf_Append(b *testing.B) {

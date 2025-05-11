@@ -18,14 +18,17 @@ str := sb.String()
 ## Benchmark
 
 ### Compare with strings.Builder
-(source code: stringbuf_bench_test.go)
+```
+// stringbuf_bench_test.go
+go test -bench=. -benchmem
+```
+
 ```
 cpu: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz
-BenchmarkStringBuf_Append-6                        10000            240271 ns/op
-BenchmarkStringsBuilder_Append-6                    1407            766408 ns/op
-BenchmarkStringBuf_Prepend-6                        5534            247672 ns/op
-BenchmarkStringsBuilder_PrependSimulated-6             6         183996911 ns/op
-PASS
+BenchmarkStringBuf_Append-6                        10000            209105 ns/op          479674 B/op            16 allocs/op
+BenchmarkStringsBuilder_Append-6                    1087           1063544 ns/op         1979769 B/op            24 allocs/op
+BenchmarkStringBuf_Prepend-6                       10000            207060 ns/op          479674 B/op            16 allocs/op
+BenchmarkStringsBuilder_PrependSimulated-6            14          81451154 ns/op        407881812 B/op         2014 allocs/op
 ```
 
 ## Why is stringbuf faster?
