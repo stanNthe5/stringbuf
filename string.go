@@ -136,8 +136,8 @@ func (s *StringBuf) Bytes() []byte {
 	}
 
 	for _, chunk := range s.buf {
-		for _, bytes := range chunk {
-			b = append(b, []byte(bytes)...)
+		for _, str := range chunk {
+			b = append(b, str...)
 		}
 	}
 	return b
